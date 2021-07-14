@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './SearchForm.css';
 
 class SearchForm extends Component {
     state = { query: '' };
@@ -18,11 +19,11 @@ class SearchForm extends Component {
 
     render() { 
         return (
-            <form onSubmit={ this.handleSubmit }>
-                <input type="text" value={this.state.query} onChange={this.handleChange} />
-                <button type="submit">Search</button>
+            <form className="BoxContainer" onSubmit={this.handleSubmit}>
+                <input className="search" type="text" value={this.state.query} onChange={this.handleChange} />
+                <button className="btn" type="submit">Search</button>
             </form>
-         );
+        );
     }
 }
  

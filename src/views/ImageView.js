@@ -6,6 +6,13 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 
 const useStyles = makeStyles((theme) => ({
+    title: {
+        textAlign: "center",
+        fontSize: 35,
+        fontFamily: "Nunito",
+        fontWeight: 500,
+        color: "#2980b9",
+    },
     modal: {
         display: 'flex',
         alignItems: 'center',
@@ -24,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
         maxHeight: '95%',
         display: 'flex',
         backgroundColor: theme.palette.background.paper,
-        border: '2px solid #000',
+        border: '2px solid #2980b9',
         boxShadow: theme.shadows[5],
         padding: 10,
     },
@@ -68,14 +75,16 @@ export default function ImageView() {
             if (err) {
                 console.error(err.message);
             } else {
-                setArticles(Object.values(data.query.pages));
+                if (data.query) {
+                    setArticles(Object.values(data.query.pages));
+                }
             }
         });
     }
 
     return (
         <div>
-            <h1>Wikipedia Images</h1>
+            <h1 className={classes.title}>Wikipedia Images</h1>
 
             <SearchForm onSubmit={onChangeQuery} />
                 
